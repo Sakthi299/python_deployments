@@ -16,7 +16,28 @@ app = Flask(__name__)
 app.config['MONGO_URI'] = config('MONGO_URI')
 
 mongo = PyMongo(app)
-book    = mongo.db.telephone-registry 
+book  = mongo.db['telephone-registry'] 
+
+@app.route("/add-new-contact",methods = ['POST'])
+def add_new_contacts():
+
+    name  = request.json['name']
+    phone = request.json['phone']
+    place = request.json['place']
+
+    contact_obj = {
+        "name"      : name,
+        "phone"     : phone,
+        "place"     : place
+    }
+       
+    book.insert_one(contact_obj)
+
+    result_dict = {
+        "Status" : "Contact Inserted Successfully"
+    }
+
+    return result_dict
 
 @app.route("/get-all-contacts",methods = ['GET'])
 def get_all_contacts():
@@ -38,9 +59,11 @@ def get_all_contacts():
 
     return result_dict
 
-@app.route("/get-specific-contact/",methods=['GET'])
-def get_specific_contact(name):
+@app.route("/get-specific-contact",methods=['GET'])
+def get_specific_contact():
 
+    name = request.json['name']
+    
     contact = book.find({"name":name})
     contact_list = []
     for item in contact:
@@ -56,6 +79,40 @@ def get_specific_contact(name):
 
     return result_dict
 
+@app.route("/update-specific-contact" ,methods=['PUT'])
+def update_specific_contact():
+
+    name  = request.json['name']
+    mobile = request.json['phone']
+    
+    result_dict = {
+        "name" : name
+    }
+
+    book.update_one({"name":name},{"$set":{"phone":mobile}})
+
+    result_dict = {
+        "Status" : "Contact updated Successfully"
+    }
+
+    return result_dict
+
+@app.route("/delete-specific-contact" , methods=['DELETE'])
+def delete_specific_contact():
+
+    name  = request.json['name']
+    
+    result_dict = {
+        "name" : name
+    }
+
+    book.delete_one(result_dict)
+
+    result_dict = {
+        "Status" : "Contact deleted Successfully"
+    }
+
+    return result_dict
 
 if __name__ == "__main__":
 
