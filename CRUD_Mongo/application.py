@@ -16,47 +16,42 @@ app = Flask(__name__)
 app.config['MONGO_URI'] = config('MONGO_URI')
 
 mongo = PyMongo(app)
-lib    = mongo.db.stack_libraries
+book    = mongo.db.telephone-registry 
 
-@app.route("/get-all-libraries",methods = ['GET'])
-def get_all_libraries():
+@app.route("/get-all-contacts",methods = ['GET'])
+def get_all_contacts():
 
-    libraries = lib.find()
-    lib_list = []
+    contacts = book.find()
+    contact_list = []
 
-    for item in libraries:
-        library_obj = {
-            "library" : item['library'],
-            "logo"    : item['logo']
+    for item in contacts:
+        contact_obj = {
+            "name"      : item['name'],
+            "mobile"    : item['phone'],
+            "place"     : item['place']
         }
-        lib_list.append(library_obj)
-    
-    library_list = lib_list
+        contact_list.append(contact_obj)
 
     result_dict = {
-        "libraries" : library_list
+        "Contacts" : contact_list
     }
 
     return result_dict
 
-@app.route("/get-specific-library",methods=['GET'])
-def get_specific_library():
+@app.route("/get-specific-contact/",methods=['GET'])
+def get_specific_contact(name):
 
-    parent        = request.json['parent']
-    library_no    = request.json['number']
-    
-    libraries = lib.find({"_id.parent":parent,"_id.sno":library_no})
-    lib_list = []
-    for item in libraries:
-        library_obj = {
-            "library" : item['library'],
-            "link"    : item['github_link']
+    contact = book.find({"name":name})
+    contact_list = []
+    for item in contact:
+        contact_obj = {
+            "Name"      : item['name'],
+            "Mobile"    : item['phone']
         }
-        lib_list.append(library_obj)
-    library_list = lib_list
+        contact_list.append(contact_obj)
 
     result_dict = {
-        "libraries" : library_list
+        "Contacts" : contact_list
     }
 
     return result_dict
