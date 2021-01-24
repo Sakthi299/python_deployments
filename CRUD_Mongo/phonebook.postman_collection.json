@@ -1,0 +1,158 @@
+{
+	"info": {
+		"_postman_id": "3032b18d-750e-4ce6-9179-55aebc5aa0f5",
+		"name": "phonebook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Delete contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/delete-specific-contact",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"delete-specific-contact"
+					]
+				},
+				"description": "Delete "
+			},
+			"response": []
+		},
+		{
+			"name": "Get-specific-contact",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Sakthi\"\n}\n"
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/get-specific-contact",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"get-specific-contact"
+					]
+				},
+				"description": "Get individual contact"
+			},
+			"response": []
+		},
+		{
+			"name": "Get-all-contacts",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:5000/get-all-contacts",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"get-all-contacts"
+					]
+				},
+				"description": "Get all contacts"
+			},
+			"response": []
+		},
+		{
+			"name": "Add-new-contact",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" :\"Khan\",\n    \"phone\":\"8889997776\",\n    \"place\":\"Mumbai\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/add-new-contact",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"add-new-contact"
+					]
+				},
+				"description": "Add a new contact"
+			},
+			"response": []
+		},
+		{
+			"name": "Update-specific-contact",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"Sakthi\",\n    \"phone\":\"9442921090\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:5000/update-specific-contact",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "5000",
+					"path": [
+						"update-specific-contact"
+					]
+				},
+				"description": "Updating method"
+			},
+			"response": []
+		}
+	]
+}
