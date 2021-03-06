@@ -6,7 +6,6 @@ import logging
 from flask_pymongo import PyMongo
 from flask import Flask, jsonify, request, make_response, session,json
 
-
 # Local Import
 #from controllers import *
 #import response_utils
@@ -32,6 +31,8 @@ def add_new_contacts():
     }
        
     book.insert_one(contact_obj)
+
+    #  mongo.db['telephone-registry'].insert_one({"name":"Naveen","place":"Chennai"})
 
     result_dict = {
         "Status" : "Contact Inserted Successfully"
@@ -62,7 +63,8 @@ def get_all_contacts():
 @app.route("/get-specific-contact",methods=['GET'])
 def get_specific_contact():
 
-    name = request.json['name']
+    name = request.json['n
+Collection Nameame']
     
     contact = book.find({"name":name})
     contact_list = []
