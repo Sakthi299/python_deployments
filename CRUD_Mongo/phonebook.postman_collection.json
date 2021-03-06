@@ -12,7 +12,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "",
+					"raw": "{\n    \"name\":\"Khan1\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -47,7 +47,12 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Sakthi\"\n}\n"
+					"raw": "{\n    \"name\":\"Ashok\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
 				},
 				"url": {
 					"raw": "http://127.0.0.1:5000/get-specific-contact",
@@ -97,7 +102,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\" :\"Khan\",\n    \"phone\":\"8889997776\",\n    \"place\":\"Mumbai\"\n}",
+					"raw": "{\n    \"name\" :\"Ashok\",\n    \"phone\":\"7589678756\",\n    \"place\":\"Kovai\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -129,7 +134,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\":\"Sakthi\",\n    \"phone\":\"9442921090\"\n}",
+					"raw": "{\n    \"name\":\"Ashok\",\n    \"phone\":\"7589678999\"\n}",
 					"options": {
 						"raw": {
 							"language": "json"
